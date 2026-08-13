@@ -45,31 +45,63 @@ The six cards in `#writing` all point at `https://stillfiring.com/guides`. Swap 
 
 ---
 
-## A free domain
+## Getting berkankomur.is-a.dev
 
-You asked for free. In order of how good the result looks:
+`berkankomur`, `komurberkan` and even plain `berkan` were all still free in the registry when this was written.
 
-**1. `berkankomur.is-a.dev` - free forever, best looking**
-A community registry that hands out `.is-a.dev` subdomains to developers, running on Cloudflare. You fork [is-a-dev/register](https://github.com/is-a-dev/register), add a small JSON file pointing at your host, and open a pull request. Takes about ten minutes plus review time. A `.dev` address reads as deliberate on a CV, which no other free option manages.
+The registry requires the site to already be live before you apply, because the pull request has to include a working link and a screenshot. So the order is deploy first, register second.
 
-**2. `berkankomur.pages.dev` - instant, zero effort**
-Cloudflare Pages gives every project a free subdomain the moment you deploy. You already run both products on Cloudflare, so this keeps everything in one account and needs no extra steps. Good enough to start applying today, and you can point option 1 at it later without redeploying.
+This folder is already a git repository with one commit, and `is-a-dev-berkankomur.json` in the root holds the exact file the registry wants. It is gitignored, so it will not be published with the site.
 
-Netlify (`.netlify.app`), Vercel (`.vercel.app`) and GitHub Pages (`.github.io`) work the same way if you prefer one of those.
+### Step 1: deploy to GitHub Pages
 
-**What not to bother with:** Freenom, the old source of free `.tk` and `.cf` domains, shut down in 2024 after Meta sued over phishing volume. It came back in 2026 but the domains are paid now, and the extensions still carry a spam reputation that hurts deliverability. Not worth it.
+```bash
+gh repo create komurberkan.github.io --public --source . --push
+```
 
-**Worth knowing:** a real `.com` runs about $10 a year. For something a hiring manager will type, that is usually money well spent. `berkankomur.com` and `.dev` variants are worth checking.
+That needs the GitHub CLI. If you do not have it, create the repository at https://github.com/new named `komurberkan.github.io`, then:
 
-### Deploying
+```bash
+git remote add origin https://github.com/komurberkan/komurberkan.github.io.git
+git push -u origin main
+```
 
-Cloudflare Pages, since you are already there:
+Then in the repository, Settings > Pages > Source: `Deploy from a branch`, branch `main`, folder `/ (root)`. A minute later the site is live at https://komurberkan.github.io.
+
+### Step 2: claim the subdomain
+
+1. Fork https://github.com/is-a-dev/register
+2. In your fork create `domains/berkankomur.json` with exactly the contents of `is-a-dev-berkankomur.json`:
+
+```json
+{
+  "owner": {
+    "username": "komurberkan",
+    "email": "berkankomur1@gmail.com"
+  },
+  "records": {
+    "CNAME": "komurberkan.github.io"
+  }
+}
+```
+
+3. Open a pull request. **Fill in their template rather than replacing it**, and include the live link plus a screenshot of the site. Both are required, and pull requests that skip them get closed.
+4. Once it is merged, go back to Settings > Pages on your repository, put `berkankomur.is-a.dev` in Custom domain, and tick Enforce HTTPS.
+
+One thing worth knowing: the registry's README says plainly not to use AI to generate the request. The JSON above is copied from their own GitHub Pages guide rather than invented, so it is correct, but write the pull request description in your own words. A submission that reads as machine-written gets a colder review.
+
+### If you want something live today instead
+
+Cloudflare Pages gives you `berkankomur.pages.dev` the moment you deploy, with no pull request and no waiting for a maintainer. You already run both products on Cloudflare, so it stays in one account:
 
 1. https://dash.cloudflare.com > Workers & Pages > Create > Pages > Upload assets
-2. Drag this whole folder in
-3. Name the project `berkankomur`, which gives you `berkankomur.pages.dev`
+2. Drag this whole folder in, name the project `berkankomur`
 
-No build command and no output directory to set, because there is no build. Netlify has the same flow at https://app.netlify.com/drop.
+No build command and no output directory, because there is no build. You can still do the is-a.dev registration afterwards and point the `CNAME` at `berkankomur.pages.dev` instead.
+
+**What not to bother with:** Freenom, the old source of free `.tk` and `.cf` domains, shut down in 2024 after Meta sued over phishing volume. It came back in 2026 but the domains are paid now, and the extensions still carry a spam reputation.
+
+**Worth knowing:** a real `.com` runs about $10 a year. For something a hiring manager types by hand, that is usually money well spent.
 
 ---
 
