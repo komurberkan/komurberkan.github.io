@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Berkan Kömür - Engineer, conversion tracking</title>
+<meta name="description" content="I build software that catches broken ad tracking. Creator of StillFiring and ProvePixel, both live and taking payments.">
+<meta name="color-scheme" content="light dark">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Berkan Kömür - Engineer, conversion tracking">
+<meta property="og:description" content="Creator of StillFiring and ProvePixel. I build software that catches broken ad tracking.">
+<meta property="og:image" content="assets/stillfiring-home.jpg">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23b3341f'/><text x='16' y='22' font-family='system-ui,sans-serif' font-size='15' font-weight='600' fill='%23ffffff' text-anchor='middle'>BK</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#top">Berkan Kömür</a>
+
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#approach">Approach</a>
+      <a href="#stack">Stack</a>
+      <a href="#writing">Writing</a>
+    </nav>
+
+    <div class="nav__end">
+      <button class="iconbtn" id="theme-toggle" type="button" aria-label="Switch colour theme">
+        <i class="ph ph-sun" aria-hidden="true" data-theme-icon></i>
+      </button>
+      <a class="btn btn--sm btn--solid" href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===================== HERO (asymmetric split) ===================== -->
+<section class="hero" id="top">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <h1 class="hero__title">
+        I build software that catches broken ad tracking.
+      </h1>
+      <p class="hero__sub">
+        Two products live in production: a Shopify conversion pixel monitor, and an audit engine for ad agencies.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--solid" href="#work">See the work</a>
+        <!-- Hidden automatically until assets/cv.pdf exists. See main.js step 6. -->
+        <a class="btn btn--ghost" id="cv-link" href="assets/cv.pdf" download hidden>
+          <i class="ph ph-arrow-down" aria-hidden="true"></i>
+          Download CV
+        </a>
+      </div>
+    </div>
+
+    <figure class="heroshot" data-frame>
+      <img src="assets/stillfiring-home.jpg" alt="The StillFiring homepage, offering a free tracking check for Shopify stores" width="1568" height="726" loading="eager" decoding="async">
+      <figcaption class="frame__fallback" aria-hidden="true">Add <code>assets/stillfiring-home.jpg</code></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===================== WORK (two case studies) ===================== -->
+<section class="section" id="work">
+  <div class="wrap">
+    <p class="eyebrow">Selected work</p>
+    <h2 class="section__title">Two products, shipped solo and running today.</h2>
+
+    <!-- ---------- CASE 1: StillFiring (full width, 3-column facts) ---------- -->
+    <article class="case case--stack" data-reveal>
+      <div class="case__body">
+        <div class="case__head">
+          <span class="case__logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="40" height="40">
+              <defs>
+                <linearGradient id="sf-g" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#4f46e5"/>
+                  <stop offset="1" stop-color="#06b6d4"/>
+                </linearGradient>
+              </defs>
+              <rect width="24" height="24" rx="5.6" fill="url(#sf-g)"/>
+              <path d="M4 12 H8 L10.2 6.8 L13.8 17.2 L16 12 H20" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="case__name">StillFiring</h3>
+            <a class="case__link" href="https://stillfiring.com" target="_blank" rel="noopener">
+              stillfiring.com <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <p class="case__lede">
+          Shopify merchants lose ad budget for weeks before anyone notices a pixel stopped firing. StillFiring
+          watches the storefront and tells them the hour it breaks.
+        </p>
+
+        <dl class="facts">
+          <div>
+            <dt>What it does</dt>
+            <dd>Rescans the public storefront hourly, diffs the tracking surface, and emails the merchant when a pixel disappears, duplicates, or stops sandboxing.</dd>
+          </div>
+          <div>
+            <dt>Hardest part</dt>
+            <dd>Naming every pixel from a live storefront with no app install and no admin session, then reconciling recorded orders against Google Ads conversion counts.</dd>
+          </div>
+          <div>
+            <dt>Business model</dt>
+            <dd>Free one-off scan as the front door. Monitoring at $29 per store per month with a 14 day trial, billed through Shopify.</dd>
+          </div>
+        </dl>
+
+        <ul class="tags">
+          <li>Shopify App</li>
+          <li>Custom Pixels</li>
+          <li>Google Ads API</li>
+          <li>GA4</li>
+          <li>Meta Pixel</li>
+          <li>Hourly monitoring</li>
+        </ul>
+      </div>
+
+      <figure class="shot" data-frame>
+        <img src="assets/stillfiring-pricing.jpg" alt="StillFiring pricing page showing a free check alongside monitoring at 29 dollars per month" width="1568" height="726" loading="lazy" decoding="async">
+        <figcaption class="frame__fallback" aria-hidden="true">Add <code>assets/stillfiring-pricing.jpg</code></figcaption>
+      </figure>
+    </article>
+
+    <!-- ---------- CASE 2: ProvePixel (split) ---------- -->
+    <article class="case" data-reveal>
+      <div class="case__body">
+        <div class="case__head">
+          <span class="case__logo" aria-hidden="true">
+            <svg viewBox="-2 -2 25 25" width="40" height="40">
+              <rect x="-2" y="-2" width="25" height="25" rx="3" fill="#faf8f5"/>
+              <rect x="0" y="0" width="5.5" height="5.5" fill="#191512"/><rect x="8" y="0" width="5.5" height="5.5" fill="#191512"/><rect x="16" y="0" width="5.5" height="5.5" fill="#191512"/>
+              <rect x="0" y="8" width="5.5" height="5.5" fill="#191512"/><rect x="8" y="8" width="5.5" height="5.5" fill="#191512"/><rect x="16" y="8" width="5.5" height="5.5" fill="#8c2f22"/>
+              <rect x="0" y="16" width="5.5" height="5.5" fill="#191512"/><rect x="8" y="16" width="5.5" height="5.5" fill="#191512"/><rect x="16" y="16" width="5.5" height="5.5" fill="#191512"/>
+            </svg>
+          </span>
+          <div>
+            <h3 class="case__name">ProvePixel</h3>
+            <a class="case__link" href="https://provepixel.com" target="_blank" rel="noopener">
+              provepixel.com <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <p class="case__lede">
+          Agencies pitch prospects with generic advice and get ignored. ProvePixel scans a list of domains and
+          hands back a specific, checkable defect to open the conversation with.
+        </p>
+
+        <dl class="facts">
+          <div>
+            <dt>What it does</dt>
+            <dd>Reads tag containers rather than page source, then flags dead properties, duplicate pixels, certificate failures, missing Consent Mode, and abandoned tag managers.</dd>
+          </div>
+          <div>
+            <dt>Hardest part</dt>
+            <dd>Grading every finding as Confirmed, Likely, or Worth checking. An agency that sends a wrong claim to a prospect never sends a second one.</dd>
+          </div>
+          <div>
+            <dt>Business model</dt>
+            <dd>$299 per month for 500 scans, $499 for 2,500 scans across multiple brands. Output is a one page report under the sender's own branding.</dd>
+          </div>
+        </dl>
+
+        <ul class="tags">
+          <li>Domain scanning</li>
+          <li>GTM container parsing</li>
+          <li>Consent Mode v2</li>
+          <li>White label reports</li>
+          <li>Bulk domain queues</li>
+        </ul>
+      </div>
+
+      <figure class="shot" data-frame>
+        <img src="assets/provepixel-report.jpg" alt="A ProvePixel audit report flagging a retired Universal Analytics property and a duplicated Google Ads conversion tag" width="1568" height="726" loading="lazy" decoding="async">
+        <figcaption class="frame__fallback" aria-hidden="true">Add <code>assets/provepixel-report.jpg</code></figcaption>
+      </figure>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== APPROACH (bento, 5 cells) ===================== -->
+<section class="section section--alt" id="approach">
+  <div class="wrap">
+    <h2 class="section__title">What I am actually good at.</h2>
+
+    <div class="bento">
+      <div class="bento__cell bento__cell--wide bento__cell--accent" data-reveal>
+        <i class="ph ph-crosshair-simple bento__icon" aria-hidden="true"></i>
+        <h3>Tracking forensics</h3>
+        <p>
+          Given a live site and a complaint like "conversions dropped but orders did not", I can find the cause.
+          GA4, Google Ads, Meta CAPI, GTM, consent banners, and the interactions between them.
+        </p>
+      </div>
+
+      <div class="bento__cell" data-reveal>
+        <i class="ph ph-storefront bento__icon" aria-hidden="true"></i>
+        <h3>Shopify platform depth</h3>
+        <p>Custom Pixels, checkout extensibility, app billing, and the August 2026 removal of checkout additional scripts.</p>
+      </div>
+
+      <div class="bento__cell" data-reveal>
+        <i class="ph ph-sparkle bento__icon" aria-hidden="true"></i>
+        <h3>How I build</h3>
+        <p>With AI coding tools, not by hand. Both products went from empty repo to paying customers that way.</p>
+      </div>
+
+      <div class="bento__cell bento__cell--wide bento__cell--tint" data-reveal>
+        <i class="ph ph-currency-circle-dollar bento__icon" aria-hidden="true"></i>
+        <h3>Zero to paid, solo</h3>
+        <p>
+          Positioning, pricing, landing page, billing, and support on both products. I have shipped the unglamorous
+          half: trials, dunning, cancellation, and the emails nobody wants to write.
+        </p>
+      </div>
+
+      <div class="bento__cell bento__cell--full" data-reveal>
+        <i class="ph ph-article bento__icon" aria-hidden="true"></i>
+        <h3>Writing that ranks and holds up technically</h3>
+        <p>
+          Thirteen published diagnostic guides covering the failure modes I kept seeing in support. They double as
+          the acquisition channel for StillFiring.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STACK (logo marquee) ===================== -->
+<section class="section section--tight" id="stack">
+  <div class="wrap">
+    <h2 class="section__title section__title--sm">Tools I work in daily.</h2>
+  </div>
+
+  <div class="marquee">
+    <div class="marquee__track">
+      <!-- main.js repeats this row until the loop is seamless at any width -->
+      <div class="marquee__row" data-marquee-row>
+        <img src="https://cdn.simpleicons.org/shopify/8a8a8a" alt="Shopify" width="34" height="34" loading="lazy">
+        <img src="https://cdn.simpleicons.org/googletagmanager/8a8a8a" alt="Google Tag Manager" width="34" height="34" loading="lazy">
+        <img src="https://cdn.simpleicons.org/googleanalytics/8a8a8a" alt="Google Analytics" width="34" height="34" loading="lazy">
+        <img src="https://cdn.simpleicons.org/googleads/8a8a8a" alt="Google Ads" width="34" height="34" loading="lazy">
+        <img src="https://cdn.simpleicons.org/meta/8a8a8a" alt="Meta" width="34" height="34" loading="lazy">
+        <img src="https://cdn.simpleicons.org/claude/8a8a8a" alt="Claude" width="34" height="34" loading="lazy">
+        <img src="https://cdn.simpleicons.org/cursor/8a8a8a" alt="Cursor" width="34" height="34" loading="lazy">
+        <img src="https://cdn.simpleicons.org/javascript/8a8a8a" alt="JavaScript" width="34" height="34" loading="lazy">
+        <img src="https://cdn.simpleicons.org/cloudflare/8a8a8a" alt="Cloudflare" width="34" height="34" loading="lazy">
+        <img src="https://cdn.simpleicons.org/git/8a8a8a" alt="Git" width="34" height="34" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WRITING (scroll-snap rail) ===================== -->
+<section class="section" id="writing">
+  <div class="wrap">
+    <p class="eyebrow">Writing</p>
+    <div class="section__headrow">
+      <h2 class="section__title">Diagnostic guides, published on StillFiring.</h2>
+      <a class="link" href="https://stillfiring.com/guides" target="_blank" rel="noopener">
+        All 13 guides <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="rail" tabindex="0" aria-label="Selected guides, scroll horizontally">
+    <div class="rail__inner">
+      <a class="post" href="https://stillfiring.com/guides" target="_blank" rel="noopener">
+        <h3>Shopify is deleting checkout additional scripts in August 2026</h3>
+        <p>What breaks, what survives, and the migration path to Custom Pixels.</p>
+      </a>
+      <a class="post" href="https://stillfiring.com/guides" target="_blank" rel="noopener">
+        <h3>Google Ads reports zero conversions on Shopify</h3>
+        <p>The six causes, ordered by how often they turn out to be the real one.</p>
+      </a>
+      <a class="post" href="https://stillfiring.com/guides" target="_blank" rel="noopener">
+        <h3>Conversions dropped while orders stayed normal</h3>
+        <p>Separating a tracking failure from an actual revenue problem before you panic.</p>
+      </a>
+      <a class="post" href="https://stillfiring.com/guides" target="_blank" rel="noopener">
+        <h3>Double counted Shopify conversions</h3>
+        <p>Why one purchase becomes two, and which layer to remove rather than patch.</p>
+      </a>
+      <a class="post" href="https://stillfiring.com/guides" target="_blank" rel="noopener">
+        <h3>Cookie banners and the conversions they quietly eat</h3>
+        <p>Consent Mode behaviour, blocked tags, and measuring the real cost.</p>
+      </a>
+      <a class="post" href="https://stillfiring.com/guides" target="_blank" rel="noopener">
+        <h3>GA4 is missing Shopify purchase data</h3>
+        <p>Where the purchase event goes when the dataLayer looks fine.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="section contact" id="contact">
+  <div class="wrap contact__inner">
+    <h2 class="contact__title">Open to product engineering roles in analytics, martech, and ecommerce.</h2>
+
+    <div class="contact__actions">
+      <a class="btn btn--solid" href="mailto:berkankomur1@gmail.com">
+        <i class="ph ph-envelope-simple" aria-hidden="true"></i>
+        Email me
+      </a>
+      <button class="btn btn--ghost" type="button" id="copy-mail" data-mail="berkankomur1@gmail.com">
+        <i class="ph ph-copy" aria-hidden="true" data-copy-icon></i>
+        <span data-copy-label>Copy address</span>
+      </button>
+    </div>
+
+    <ul class="contact__links">
+      <li><a href="https://www.linkedin.com/in/komurberkan/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://stillfiring.com" target="_blank" rel="noopener">StillFiring</a></li>
+      <li><a href="https://provepixel.com" target="_blank" rel="noopener">ProvePixel</a></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <span>&copy; 2026 Berkan Kömür</span>
+    <a href="mailto:berkankomur1@gmail.com">berkankomur1@gmail.com</a>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>
