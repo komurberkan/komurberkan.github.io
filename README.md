@@ -19,9 +19,11 @@ Screenshots of your own live sites, captured at 1568x726:
 
 | File | Where it appears |
 |---|---|
-| `stillfiring-home.jpg` | Hero, right column |
-| `stillfiring-pricing.jpg` | StillFiring case study, full width |
-| `provepixel-report.jpg` | ProvePixel case study, right column |
+| `kmg-templates.jpg` | Hero, right column, and the social share image |
+| `stillfiring-home.jpg` | Not used at the moment, kept as a spare |
+| `kmg-studio.jpg` | KMG Web Studio case study, full width |
+| `stillfiring-pricing.jpg` | StillFiring case study, right column |
+| `provepixel-report.jpg` | ProvePixel case study, left column |
 
 Replacing any of them is just a matter of dropping a new file with the same name. Roughly 16:9 works best. If a file goes missing the page shows a labelled slot rather than a broken image.
 

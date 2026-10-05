@@ -365,7 +365,7 @@ code {
 
 /* =========================================================================
    CASE STUDIES
-   case 1: split 7/5   |   case 2 (.case--stack): full width, 3-col facts
+   .case: split 7/5   |   .case--stack: full width, 3-col facts   |   .case--flip: split 5/7
    ========================================================================= */
 .case {
   display: grid;
@@ -448,6 +448,10 @@ code {
 }
 .case--stack .facts dd { max-width: none; }
 .case--stack .case__lede { max-width: 68ch; }
+
+/* flipped variant: screenshot on the left, so two splits in a row alternate */
+.case--flip .shot { grid-row: 1; grid-column: 1 / span 5; }
+.case--flip .case__body { grid-column: 6 / span 7; }
 
 /* =========================================================================
    BENTO - 5 cells, exact fit, no empty tiles
@@ -619,7 +623,8 @@ code {
   .heroshot { max-width: 620px; }
 
   .case { grid-template-columns: 1fr; gap: 32px; }
-  .case__body, .shot { grid-column: auto; }
+  .case__body, .shot,
+  .case--flip .case__body, .case--flip .shot { grid-column: auto; grid-row: auto; }
   .shot, .case--stack .shot { aspect-ratio: 16 / 10; }
   .case--stack .facts { grid-template-columns: repeat(2, 1fr); gap: 26px; }
 
